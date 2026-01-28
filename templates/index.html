@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <title>Zeitverschiebungsrechner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body { font-family: Arial, sans-serif; max-width:800px; margin: 2rem auto; padding:1rem; }
+      label, select { display:block; margin-bottom:0.5rem; }
+      .row { display:flex; gap:1rem; align-items:end; }
+      .card { border:1px solid #ddd; padding:1rem; border-radius:6px; margin-top:1rem; }
+      button { padding:0.5rem 1rem; }
+    </style>
+  </head>
+  <body>
+    <h1>Zeitverschiebungsrechner</h1>
+    <form method="post">
+      <div class="row">
+        <div style="flex:1">
+          <label for="tz1">Standort / Zeitzone 1</label>
+          <select id="tz1" name="tz1">
+            {% for tz in timezones %}
+              <option value="{{ tz }}" {% if tz==tz1 %}selected{% endif %}>{{ tz }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div style="flex:1">
+          <label for="tz2">Standort / Zeitzone 2</label>
+          <select id="tz2" name="tz2">
+            {% for tz in timezones %}
+              <option value="{{ tz }}" {% if tz==tz2 %}selected{% endif %}>{{ tz }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div>
+          <button type="submit">Anzeigen</button>
+        </div>
+      </div>
+    </form>
+
+    <div class="card">
+      <h2>Ergebnis</h2>
+      <p><strong>{{ tz1 }}</strong>: {{ time1 }} (UTC{{ "%+g"|format(offset1) }} Std.)</p>
+      <p><strong>{{ tz2 }}</strong>: {{ time2 }} (UTC{{ "%+g"|format(offset2) }} Std.)</p>
+      <p>Die Zeitdifferenz beträgt: <strong>{{ diff_hours }}</strong> Stunden</p>
+    </div>
+
+    <footer style="margin-top:1.5rem; color:#666">
+      <small>Original: Lukas Meissner — Portierung zu einer Web-App für Render.com</small>
+    </footer>
+  </body>
+</html>
