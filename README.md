@@ -29,4 +29,4 @@ Vorgehen: Prüft, in welcher UTC‑Liste der Ort vorkommt, erstellt einen String
 Addiert z zur Stunde der lokalen Zeit (strftime("%H")), passt das Datum an, baut time_string/date_string zusammen und aktualisiert gefragt_zeit; ruft sich alle 500 ms erneut auf.
 Benutzung (kurz)
 Tab "Uhrzeit": öffne das Fenster — die lokale Zeit (Salzburg) erscheint automatisch. Trage in "Wie spät ist es in:" eine Stadt (die in den Listen vorhanden sein muss) und klicke "enter", um die Uhrzeit für diesen Ort zu sehen.
-Tab "Zeitdifferenzrechner": trage zwei Ortenamen ein, klicke "Differenz berechnen" — Ergebnis in Stunden erscheint.
+Tab "Zeitdifferenzrechner": trage zwei Ortenamen ein, klicke "Differenz berechnen" — Ergebnis in Stunden erscheint.     https://zeitverschiebungsrechner-py-1.onrender.com
