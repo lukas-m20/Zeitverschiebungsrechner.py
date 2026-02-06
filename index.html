@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Zeitzonen</title>
+    <meta http-equiv="refresh" content="45">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="box small location">
+        Standort: Salzburg
+    </div>
+
+    <input class="input time-input" placeholder="Ort der gesuchten Zeit">
+
+    <button class="search-btn">Suchen</button>
+
+    <div class="box big local-time">
+        In Salzburg hat es gerade {{ uhrzeit_s|default("?") }} Uhr am {{datum|default("?")}}.
+    </div>
+
+    <div class="box big searched-time">
+        In {{ ort_g|default("?") }} hat es gerade {{uhrzeit_g|default("?") }} Uhr am {{datum_g|default("?")}}.
+    </div>
+
+</div>
+
+</body>
+</html>
